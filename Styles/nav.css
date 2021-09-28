@@ -1,0 +1,224 @@
+/* General Website Styling*/
+@font-face {
+  font-family: navfont;
+  src: url(/Fonts/galirdb.ttf);
+}
+@font-face {
+  font-family: heading;
+  src: url(/Fonts/SwankyandMooMoo-Regular.ttf);
+}
+@font-face {
+  font-family: body-text;
+  src: url(/Fonts/Sura-Regular.ttf);
+}
+@font-face {
+  font-family: title;
+  src: url(/Fonts/KaushanScript-Regular.ttf);
+}
+@font-face {
+  font-family: title2;
+  src: url(/Fonts/Merriweather-Regular.ttf)
+}
+*{
+    overflow-x: hidden;
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+  }
+/* Colour Palette */
+:root {
+    --lgreen: #adb67d;
+    --beige: #867f6a;
+    --gold: #946D2A;
+    --dgreen: #586c51;
+    --brown: #544435;
+    --black: black; 
+    --white: white;
+}
+/* Larger Screen */
+/* Nav Bar */
+.nav{
+  display: block;
+  position: fixed;
+  text-align: center;
+  width: 100%;
+  top: 0;
+  z-index: 700;
+  background-color: white;
+  padding-bottom: 0.5vw;
+  height:10vw;
+  overflow:hidden;
+  }
+.nav li{
+    display: inline-block;
+  }
+/* Nav Bar text styling */
+.nav-text a{
+    color:black;
+    opacity: 0.7;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 0.15em;
+    display: inline-block;
+    padding: 1vw 1.5vw;
+    position: relative;
+    font-size: 0.8vw;
+    font-family: navfont;
+    letter-spacing: 5px;
+  }
+  .nav .nav-text a:after {    
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    background: var(--dgreen);
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+  }
+  .nav-text a:hover{
+    color: var(--dgreen);
+    opacity: 1;
+  }
+  .nav-text a:hover:after { 
+    width: 100%; 
+    left: 0; 
+  }
+  /* Nav Bar logo */
+  .logo {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 8%;
+      z-index: 700;
+      padding-bottom:0.7vw;
+      padding-top: 1vw;
+      }
+  img:hover {
+        cursor: pointer;
+  }
+/* Hamburger Menu */
+  .nav-links {
+    display: flex;
+    list-style: none;
+    width: 50%;
+    height: 100%;
+    justify-content: space-around;
+    align-items: center;
+    margin-left: auto;
+    font-family: navfont;
+    z-index: 900;
+  }
+  .nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+  }
+  /* footer */
+  .footer{
+    background-color: black;
+    color :var(--gold);
+    text-align: center;
+    font-size: 15px;
+    padding: 1.5vw;
+  }
+  .footer a{
+    color: var(--gold);
+    background-color: transparent;
+    text-decoration: none;
+  }
+  .footer a:hover{
+    color:white;
+  }
+
+/* Smaller Device */
+@media (max-width:700px){
+/* hide nav bar and increase logo size */
+  .logo {
+      width: 15%;
+      margin-top: px;
+    }
+  .nav-text{
+      display: none;
+    }
+/* hamburger menu button */
+  .line {
+      width: 40px;
+      height: 5px;
+      background:white;
+      margin: 5px;  
+    }
+  .ham-menu {
+    background-color: transparent;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    }
+  .hamburger {
+    position: absolute;
+    cursor: pointer;
+    left:50%;
+    bottom: 0;      
+    transform: translate(-50%, -20%);
+    z-index: 1000;
+    }
+  /* inside expanded hamburger navigation */
+    .nav-links {
+    position: fixed;
+    background: var(--dgreen);
+    height:100%;
+    width: 100%;
+    flex-direction: column;
+    clip-path: circle(100px at 50% 105%);
+   -webkit-clip-path: circle(100px at 50% 105%);
+    transition: all 1s ease-out;
+    pointer-events: none;
+    padding-bottom: 60px;
+    z-index: 900;
+    display: flex;
+    text-decoration: none;
+    opacity: 1;
+    }
+    .nav-links.open {
+    clip-path: circle(100% at 50% 50%);
+    -webkit-clip-path: circle(100% at 50% 50%);
+    pointer-events: all;
+    opacity: 0.9;
+    }
+    .nav-links li a.open{
+    color: white;
+    }
+    .nav-links li {
+      opacity: 0;
+    }
+    .nav-links li a {
+      font-size: 25px;
+    }
+    .nav-links li a:hover{
+      opacity: 0.5;
+      color:black;
+      transition: 0.3s;
+    }
+    .nav-links li:nth-child(5) {
+      transition: all 0.5s ease 0.2s;
+    }
+    .nav-links li:nth-child(4) {
+      transition: all 0.5s ease 0.4s;
+    }
+    .nav-links li:nth-child(3) {
+      transition: all 0.5s ease 0.6s;
+    }
+    .nav-links li:nth-child(2) {
+      transition: all 0.5s ease 0.8s;
+    }
+    .nav-links li:nth-child(1) {
+      transition: all 0.5s ease 1s;
+    }
+    li.fade {
+      opacity: 1;
+    }
+  }
